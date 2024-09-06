@@ -102,7 +102,7 @@ namespace :db do
         number_of_guests: 2,
         start_at: 13 * 60,
         end_at: 14 * 60,
-        date_of_reservation: Time.zone.now + 5.days,
+        date_of_reservation: Time.zone.now,
         state: 'assigned'
       )
       r.save!
