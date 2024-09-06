@@ -1,0 +1,181 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/customers":
+    get:
+      summary: list customers
+      responses:
+        '200':
+          description: successful
+  "/customers/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show customer
+      responses:
+        '200':
+          description: successful
+  "/reservations":
+    get:
+      summary: list reservations
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create reservation
+      responses:
+        '200':
+          description: successful
+  "/reservations/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show reservation
+      responses:
+        '200':
+          description: successful
+  "/restaurants/{restaurant_id}/reservations":
+    parameters:
+    - name: restaurant_id
+      in: path
+      description: restaurant_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list reservations
+      responses:
+        '200':
+          description: successful
+  "/restaurants/{restaurant_id}/reservations/{id}":
+    parameters:
+    - name: restaurant_id
+      in: path
+      description: restaurant_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show reservation
+      responses:
+        '200':
+          description: successful
+  "/restaurants":
+    get:
+      summary: list restaurants
+      responses:
+        '200':
+          description: successful
+  "/restaurants/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show restaurant
+      responses:
+        '200':
+          description: successful
+  "/servers":
+    get:
+      summary: list servers
+      responses:
+        '200':
+          description: successful
+  "/servers/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show server
+      responses:
+        '200':
+          description: successful
+  "/restaurants/{restaurant_id}/tables":
+    parameters:
+    - name: restaurant_id
+      in: path
+      description: restaurant_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list tables
+      responses:
+        '200':
+          description: successful
+  "/restaurants/{restaurant_id}/tables/{id}":
+    parameters:
+    - name: restaurant_id
+      in: path
+      description: restaurant_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show table
+      responses:
+        '200':
+          description: successful
+  "/tables/occupied":
+    get:
+      summary: occupied tables
+      responses:
+        '200':
+          description: successful
+  "/tables":
+    get:
+      summary: list tables
+      responses:
+        '200':
+          description: successful
+  "/tables/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show table
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://localhostisbesthost
+  variables:
+    defaultHost:
+      default: www.localhost.com
