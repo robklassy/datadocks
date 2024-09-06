@@ -19,7 +19,12 @@ class TablesController < ApplicationController
   end
 
   def occupied
+    @occupied_tables = Table.occupied_tables(
+      params[:date_of_reservation],
+      params[:start_at],
+      params[:end_at]
+    )
 
-    render json: {}, status: :ok
+    render json: @occupied_tables, status: :ok
   end
 end

@@ -16,20 +16,15 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    params.permit!
+
     @res = if params[:optimized].to_s == 'true'
-      create_first_come
+      Reservation.create_reservation_optimized(params) || {}
     else
-      create_optimized
+      Reservation.create_reservation_first_come(params) || {}
     end
 
-    render json: {}, status: :ok
+    render json: @res, status: :ok
   end
-
-  private
-
-  def create_first_come
-  end
-
-  def create_optimized
-  end
+  
 end
