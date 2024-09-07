@@ -69,16 +69,16 @@ Run the web server to load API docs
 
 # Table Assignment Strategy
 - First come first serve just finds an empty table at the time slot and assigns, as long as it fits the party size
-  - This method does not take into account matching party size to exact table seating size
+    - This method does not take into account matching party size to exact table seating size
 - Added a concept of Servers (waitstaff) that can be assigned to Tables, used this as a basis for optimizing Table assignment, eg only assign to tables where a Server is available, restaurants can then only allow enough reservations where there is staff to actually serve them, no one likes waiting 45 mins for an appetizer or a drink because they are short staffed
-  - This method also only finds tables that are the exact size of the party, thus avoiding assigning a table that has 8 seats to 2 people, avoiding wasting restaurant seating space, unocupied seats are not generating any revenue
+    - This method also only finds tables that are the exact size of the party, thus avoiding assigning a table that has 8 seats to 2 people, avoiding wasting restaurant seating space, unocupied seats are not generating any revenue
 
 # Test Approach
 I used `rswag` to write tests, it inludes easy scaffolding and can then be used to generate the API docs
 - `spec/requests/reserverations_spec.rb` has the most tests, making sure tables get assigned correctly
 
 # Future Considerations
-Some things I thought of after making this
+Some things I thought of after making this:
 - Wait list - how can current Reservation model accommodate when you show up to the Restaurant and you are put into a queue, added a `state` column to indicate when a Reservation is `assigned` to a Table.  I imagine this `state` can also be used to put the Reservation into a queue
 - Children seating - this does not take into account high chairs, eg a Restaurant may have 100 seats, but only 10 high chairs, if a family wants to bring their child, we need to have a way to allocate high chairs (or any other special equipment diners need.)  Parents of don't want to show up with no high chair available for their child
 - Chefs - sometimes you can tell there is one person in the kitchen making the food, incorporating this concept of Kitchen Capacity would be useful, eg if the kitchen is shortstaffed, only allow a certain number of Reservations
