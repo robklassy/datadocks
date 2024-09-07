@@ -69,9 +69,9 @@ Run the web server to load API docs
 
 # Table Assignment Strategy
 - First come first serve just finds an empty table at the time slot and assigns, as long as it fits the party size
--- This method does not take into account matching party size to exact table seating size
+  - This method does not take into account matching party size to exact table seating size
 - Added a concept of Servers (waitstaff) that can be assigned to Tables, used this as a basis for optimizing Table assignment, eg only assign to tables where a Server is available, restaurants can then only allow enough reservations where there is staff to actually serve them, no one likes waiting 45 mins for an appetizer or a drink because they are short staffed
--- This method also only finds tables that are the exact size of the party, thus avoiding assigning a table that has 8 seats to 2 people, avoiding wasting restaurant seating space, unocupied seats are not generating any revenue
+  - This method also only finds tables that are the exact size of the party, thus avoiding assigning a table that has 8 seats to 2 people, avoiding wasting restaurant seating space, unocupied seats are not generating any revenue
 
 # Test Approach
 I used `rswag` to write tests, it inludes easy scaffolding and can then be used to generate the API docs
