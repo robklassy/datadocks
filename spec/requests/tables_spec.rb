@@ -74,7 +74,7 @@ RSpec.describe 'tables', type: :request do
     get('occupied tables') do
       response(200, 'successful') do
 
-        example 'application/json', :discussion_question_post, [
+        example 'application/json', :tables, [
             {"id"=>"f2780449-2af1-4611-848f-606e560b9de7",
             "identifier"=>"20",
             "number_of_seats"=>6,
@@ -119,6 +119,7 @@ RSpec.describe 'tables', type: :request do
             "updated_at"=>"2024-09-06T20:24:08.261Z"}
         ]
 
+
         let(:date_of_reservation) { Time.zone.now }
         let(:start_at) { 12 * 60 }
         let(:end_at) { 20 * 60 }
@@ -130,10 +131,7 @@ RSpec.describe 'tables', type: :request do
             }
           }
         end
-        run_test! do |response|
-          data = JSON.parse(response.body)
-          pp data
-        end
+        run_test!
       end
     end
   end

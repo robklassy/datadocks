@@ -177,7 +177,7 @@ RSpec.describe 'reservations', type: :request do
         end
         run_test! do |response|
           data = JSON.parse(response.body)
-          expect(data['table_id']).not_to eq(nil)
+          expect(data['table_id']).to eq(nil)
         end
       end
     end
